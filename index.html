@@ -332,6 +332,58 @@ pre{margin:0;padding:1.25rem 1.25rem 3rem;font-family:var(--fc);font-size:.76rem
 .t-ai{background:rgba(10,0,20,.95);border-color:rgba(168,85,247,.18);color:#c4b5fd}
 @keyframes ti{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
 @media(max-width:700px){nav,.toolbar,main,.dh,.coll-bar,.recent-bar{padding-left:1rem;padding-right:1rem}.dsb,.minimap,.run-out{display:none}.dn{font-size:1.4rem}.gallery{grid-template-columns:1fr}}
+
+/* ── TEMPLATE SYSTEM ─────────────────────────────────────────── */
+.tpl-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;animation:fi .2s ease}
+.tpl-overlay.on{display:flex}
+.tpl-panel{background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;width:min(820px,95vw);max-height:82vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.6)}
+.tpl-head{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem .85rem;border-bottom:1px solid var(--bdr);flex-shrink:0}
+.tpl-title{font-family:var(--fd);font-size:1.15rem;font-weight:700;background:linear-gradient(135deg,#fff,#93c5fd,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tpl-cats{display:flex;gap:.35rem;padding:.65rem 1.4rem;border-bottom:1px solid var(--bdr);flex-shrink:0;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tpl-cats::-webkit-scrollbar{display:none}
+.tpl-cat{padding:.24rem .72rem;border-radius:99px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:var(--mut2);font-size:.68rem;cursor:pointer;transition:all .18s;white-space:nowrap}
+.tpl-cat:hover{border-color:rgba(59,130,246,.3);color:var(--txt)}
+.tpl-cat.on{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.35);color:#93c5fd}
+.tpl-body{flex:1;overflow-y:auto;padding:1rem 1.4rem 1.4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;align-content:start}
+.tpl-card{border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .22s cubic-bezier(.34,1.2,.64,1);overflow:hidden;position:relative}
+.tpl-card:hover{border-color:rgba(255,255,255,.18);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.5)}
+.tpl-card.user-tpl{border-color:rgba(168,85,247,.2);background:rgba(168,85,247,.04)}
+.tpl-card.user-tpl::before{content:'★';position:absolute;top:7px;right:8px;font-size:.6rem;color:#c4b5fd}
+.tpl-preview{height:100px;position:relative;overflow:hidden;background:#000}
+.tpl-preview canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tpl-info{padding:.6rem .75rem .65rem}
+.tpl-name{font-family:var(--fd);font-size:.82rem;font-weight:600;color:var(--txt);margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tpl-lang{font-size:.6rem;color:var(--mut2);display:flex;align-items:center;gap:.3rem;margin-bottom:.28rem}
+.tpl-desc{font-size:.64rem;color:var(--mut);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tpl-use-btn{width:100%;padding:.3rem .5rem;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:#93c5fd;border-radius:6px;font-size:.67rem;cursor:pointer;transition:all .18s;margin-top:.45rem;font-family:var(--fi)}
+.tpl-use-btn:hover{background:rgba(59,130,246,.22);border-color:rgba(59,130,246,.45)}
+.tpl-empty{grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--mut);font-size:.8rem}
+.tpl-badge{display:inline-block;font-size:.55rem;padding:.05rem .32rem;border-radius:99px;margin-left:.3rem;font-family:var(--fi)}
+.card-tpl-star{position:absolute;top:8px;right:8px;z-index:10;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.75rem;cursor:pointer;opacity:0;transition:opacity .2s,transform .2s;color:#c4b5fd}
+.card:hover .card-tpl-star{opacity:1}
+.card-tpl-star.on{opacity:1;background:rgba(168,85,247,.25);border-color:rgba(168,85,247,.4)}
+
+/* ── MULTI-FILE ──────────────────────────────────────────────── */
+.ftabs{display:flex;align-items:center;background:rgba(0,0,0,.25);border-bottom:1px solid var(--bdr);overflow-x:auto;flex-shrink:0;-ms-overflow-style:none;scrollbar-width:none;min-height:32px}
+.ftabs::-webkit-scrollbar{display:none}
+.ftab{display:flex;align-items:center;gap:.32rem;padding:.28rem .7rem;font-family:var(--fc);font-size:.65rem;color:var(--mut2);cursor:pointer;border-right:1px solid var(--bdr);white-space:nowrap;transition:background .15s,color .15s;user-select:none;flex-shrink:0}
+.ftab:hover{background:rgba(255,255,255,.04);color:var(--txt2)}
+.ftab.on{background:var(--bg2);color:var(--txt);border-bottom:2px solid var(--blue);margin-bottom:-1px}
+.ftab .ft-close{opacity:0;font-size:.6rem;padding:.05rem .15rem;border-radius:3px;transition:opacity .15s,background .15s;line-height:1}
+.ftab:hover .ft-close{opacity:.5}
+.ftab .ft-close:hover{opacity:1;background:rgba(251,113,133,.22);color:#fb7185}
+.ftab-add{padding:.28rem .55rem;color:var(--mut);cursor:pointer;font-size:.75rem;flex-shrink:0;transition:color .15s}
+.ftab-add:hover{color:var(--txt)}
+.ftype-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fmod-dot{width:5px;height:5px;border-radius:50%;background:#fbbf24;flex-shrink:0;display:none}
+.ftab.modified .fmod-dot{display:block}
+.fnew-modal{position:absolute;top:100%;left:0;z-index:50;background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:.55rem;min-width:220px;box-shadow:0 8px 24px rgba(0,0,0,.5);display:none}
+.fnew-modal.on{display:flex;flex-direction:column;gap:.35rem}
+.fnew-modal input{background:rgba(255,255,255,.05);border:1px solid var(--bdr);border-radius:5px;padding:.28rem .5rem;font-size:.7rem;color:var(--txt);font-family:var(--fc);outline:none;width:100%}
+.fnew-modal input:focus{border-color:rgba(59,130,246,.4)}
+.fnew-ftype{display:flex;flex-wrap:wrap;gap:.25rem}
+.fnew-ft{padding:.18rem .42rem;border-radius:4px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);font-size:.6rem;cursor:pointer;font-family:var(--fc);transition:all .15s}
+.fnew-ft:hover,.fnew-ft.on{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.35);color:#93c5fd}
 </style>
 </head>
 <body>
@@ -394,9 +446,20 @@ pre{margin:0;padding:1.25rem 1.25rem 3rem;font-family:var(--fc);font-size:.76rem
     <div class="dbody">
       <div class="dsb" id="dsb"></div>
       <div class="panel on" id="pprev"><div class="pvp"><div class="pvbar"><span class="pvbar-l" id="pvlbl">Preview</span><div style="flex:1"></div><button class="btn btn-sm btn-ghost" onclick="buildPrev(curP)">↺</button></div><div class="pvc" id="pvc"><button class="fs-btn" onclick="openFs()">⛶ Vollbild</button></div></div></div>
-      <div class="panel" id="pcode">
+      <div class="panel" id="pcode" style="flex-direction:column">
         <div class="cbar"><div class="cdots"><div class="cdot2" style="background:#ff5f57"></div><div class="cdot2" style="background:#ffbd2e"></div><div class="cdot2" style="background:#28c840"></div></div><span class="cfn" id="dfn"></span><div class="cacts2"><button class="btn btn-sm btn-ghost" id="editbtn" onclick="toggleEdit()">✎ Edit</button><button class="btn btn-sm btn-ghost" id="cpybtn" onclick="copyCode()">⎘</button><button class="btn btn-sm btn-ghost" onclick="dlCode()">↓</button></div></div>
-        <div class="code-wrap"><div class="code-scroll" id="code-scroll"><pre id="dcode"></pre><textarea class="editor-ta" id="editor-ta" spellcheck="false" oninput="editorLive()" style="display:none;position:absolute;inset:0;height:100%"></textarea></div><div class="minimap" id="minimap" onclick="minimapClick(event)"><canvas id="mm-cv"></canvas><div class="mm-vp" id="mm-vp"></div></div></div>
+        <div class="ftabs" id="ftabs-bar">
+          <!-- file tabs rendered by JS -->
+          <span class="ftab-add" onclick="addFilePrompt()" title="New file">＋</span>
+        </div>
+        <div style="position:relative;flex:1;overflow:hidden;display:flex">
+          <div class="fnew-modal" id="fnew-modal">
+            <div class="fnew-ftype" id="fnew-types"></div>
+            <input id="fnew-input" placeholder="filename.js" onkeydown="if(event.key==='Enter')confirmAddFile();if(event.key==='Escape')closeFnewModal()">
+            <button class="btn btn-sm" onclick="confirmAddFile()">＋ Add File</button>
+          </div>
+          <div class="code-wrap" style="flex:1"><div class="code-scroll" id="code-scroll"><pre id="dcode"></pre><textarea class="editor-ta" id="editor-ta" spellcheck="false" oninput="editorLive()" style="display:none;position:absolute;inset:0;height:100%"></textarea></div><div class="minimap" id="minimap" onclick="minimapClick(event)"><canvas id="mm-cv"></canvas><div class="mm-vp" id="mm-vp"></div></div></div>
+        </div>
       </div>
       <div class="panel" id="prun"><div class="run-panel"><div class="run-bar"><span style="font-size:.67rem;color:var(--mut2)" id="run-label">JS Run</span><div style="flex:1"></div><button class="btn btn-sm btn-ghost" onclick="clearCons()">✕ Clear</button><button class="btn btn-sm btn-green" onclick="runCode()" id="run-btn">▷ Run</button></div><div class="run-body"><div class="run-code"><pre id="run-pre"></pre></div><div class="run-out"><div class="run-out-head"><span class="run-out-label">Console</span><span style="font-size:.59rem;color:var(--mut)" id="ccount">0</span></div><div class="run-cons" id="run-cons"></div></div></div><div class="run-hint" id="run-hint"></div></div></div>
       <div class="panel" id="pchart"><div class="chart-panel" id="chart-panel"></div></div>
@@ -1508,6 +1571,7 @@ function renderGallery(){
     return '<div class="card '+focused+'" onclick="openP(\''+p.id+'\')" style="animation-delay:'+Math.min(idx*.05,.6)+'s;--card-glow:rgba('+r2+','+g2+','+b2+',.3)" data-id="'+p.id+'" data-live=\"'+isLive+'\" draggable="true">'
       +(isLive?'<div class="card-live-wrap"><div class="card-live-placeholder" id="ph-'+p.id+'"><div class="card-live-spinner"></div><span>Loading…</span></div></div><span class="card-live-badge"><span class="card-live-dot"></span>LIVE</span>'
               :'<div class="card-canvas-wrap"><canvas id="th-'+p.id+'" width="600" height="450"></canvas></div>')
+      +'<button class="card-tpl-star '+(p.isTemplate?'on':'')+'" onclick="event.stopPropagation();toggleTemplate(\''+p.id+'\')" title="Als Template speichern">'+(p.isTemplate?'⬡':'⬡')+'</button>'
       +'<div class="card-top-glow" style="background:linear-gradient(90deg,transparent,'+p.accentColor+',transparent);box-shadow:0 0 14px '+p.accentColor+'90"></div>'
       +'<span class="card-fav '+(p.starred?'on':'')+'" onclick="event.stopPropagation();toggleFav(\''+p.id+'\')">'+(p.starred?'★':'☆')+'</span>'
       +'<span class="card-drag" onclick="event.stopPropagation()">⠿</span>'
@@ -2268,6 +2332,333 @@ document.addEventListener('keydown',e=>{
 });
 load();updCollSel();render();
 
+// ══════════════════════════════════════════════════════════════
+// TEMPLATE SYSTEM
+// ══════════════════════════════════════════════════════════════
+const BUILTIN_TEMPLATES = [
+  {id:'tpl_canvas_particles',name:'Canvas Particles',language:'JavaScript',category:'Animation',accentColor:'#fb7185',description:'Interaktives Partikelsystem — Partikel verbinden sich bei Nähe.',tags:['canvas','animation','particles'],code:"window.onload=function(){\n  var c=document.querySelector('canvas'),ctx=c.getContext('2d');\n  c.width=innerWidth;c.height=innerHeight;\n  var pts=[];\n  for(var i=0;i<120;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.8,vy:(Math.random()-.5)*.8,r:Math.random()*2+1,h:Math.floor(Math.random()*60+200)});\n  window.onresize=function(){c.width=innerWidth;c.height=innerHeight};\n  function step(){\n    ctx.fillStyle='rgba(0,0,0,.1)';ctx.fillRect(0,0,c.width,c.height);\n    for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='hsl('+p.h+',80%,70%)';ctx.fill();}\n    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.strokeStyle='rgba(100,150,255,'+(1-d/120)+')';ctx.lineWidth=.4;ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}}\n    requestAnimationFrame(step);\n  }step();\n};"},
+  {id:'tpl_clock',name:'Analog Clock',language:'JavaScript',category:'Animation',accentColor:'#fbbf24',description:'Analoge Uhr mit Canvas — Stunden, Minuten, Sekunden.',tags:['canvas','clock','animation'],code:"const c=document.querySelector('canvas'),ctx=c.getContext('2d');\nc.width=c.height=Math.min(innerWidth,innerHeight);\nconst R=c.width/2,r=R*.9;\nfunction draw(){\n  ctx.clearRect(0,0,c.width,c.height);\n  ctx.save();ctx.translate(R,R);\n  // Face\n  ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);\n  ctx.fillStyle='#0a0a1a';ctx.fill();\n  ctx.strokeStyle='#3b82f6';ctx.lineWidth=3;ctx.stroke();\n  // Hour marks\n  for(let i=0;i<12;i++){const a=i*Math.PI/6;\n    ctx.beginPath();ctx.moveTo(Math.cos(a)*r*.85,Math.sin(a)*r*.85);\n    ctx.lineTo(Math.cos(a)*r*.95,Math.sin(a)*r*.95);\n    ctx.strokeStyle='#475569';ctx.lineWidth=2;ctx.stroke();\n  }\n  const now=new Date(),h=now.getHours()%12,m=now.getMinutes(),s=now.getSeconds();\n  const hand=(a,len,w,col)=>{ctx.save();ctx.rotate(a);ctx.beginPath();ctx.moveTo(0,r*.1);ctx.lineTo(0,-len);\n    ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineCap='round';ctx.stroke();ctx.restore();};\n  hand((h+m/60)*Math.PI/6-Math.PI/2,r*.55,4,'#f1f5f9');\n  hand((m+s/60)*Math.PI/30-Math.PI/2,r*.75,2.5,'#93c5fd');\n  hand(s*Math.PI/30-Math.PI/2,r*.8,1.5,'#fb7185');\n  ctx.beginPath();ctx.arc(0,0,5,0,Math.PI*2);ctx.fillStyle='#fb7185';ctx.fill();\n  ctx.restore();\n}\nsetInterval(draw,1000);draw();"},
+  {id:'tpl_fractal',name:'Mandelbrot Fractal',language:'JavaScript',category:'Animation',accentColor:'#a78bfa',description:'Mandelbrot-Fraktal mit Canvas — iterative Berechnung.',tags:['canvas','math','fractal'],code:"const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');\ncanvas.width=Math.min(600,innerWidth);canvas.height=canvas.width;\nconst W=canvas.width,H=canvas.height,MAX=80;\nconst img=ctx.createImageData(W,H);\nfor(let py=0;py<H;py++){for(let px=0;px<W;px++){\n  let x0=(px/W)*3.5-2.5,y0=(py/H)*2-1,x=0,y=0,i=0;\n  while(x*x+y*y<=4&&i<MAX){const xt=x*x-y*y+x0;y=2*x*y+y0;x=xt;i++;}\n  const t=i/MAX,idx=(py*W+px)*4;\n  img.data[idx]=Math.round(9*t*(1-t)*(1-t)*(1-t)*255);\n  img.data[idx+1]=Math.round(15*(1-t)*t*t*(1-t)*255);\n  img.data[idx+2]=Math.round(8.5*(1-t)*(1-t)*t*t*255);\n  img.data[idx+3]=255;\n}}\nctx.putImageData(img,0,0);"},
+  {id:'tpl_algo_sort',name:'Bubble Sort Visualizer',language:'JavaScript',category:'Algorithmus',accentColor:'#4ade80',description:'Bubble-Sort visualisiert — animierte Balken.',tags:['sort','algorithm','visualization'],code:"const c=document.querySelector('canvas'),ctx=c.getContext('2d');\nc.width=innerWidth;c.height=innerHeight;\nconst N=60,arr=Array.from({length:N},()=>Math.random()*c.height*.8+20);\nlet i=0,j=0,done=false;\nfunction draw(){\n  ctx.fillStyle='#020817';ctx.fillRect(0,0,c.width,c.height);\n  const bw=c.width/N;\n  arr.forEach((h,k)=>{\n    ctx.fillStyle=k===j||k===j+1?'#fb7185':done?'#4ade80':'#3b82f6';\n    ctx.fillRect(k*bw+1,c.height-h,bw-2,h);\n  });\n}\nfunction step(){\n  if(!done){\n    if(arr[j]>arr[j+1]){[arr[j],arr[j+1]]=[arr[j+1],arr[j]]}\n    j++;if(j>=N-1-i){j=0;i++;if(i>=N)done=true;}\n  }\n  draw();\n  setTimeout(()=>requestAnimationFrame(step),18);\n}\nstep();"},
+  {id:'tpl_fibonacci',name:'Fibonacci Memoization',language:'JavaScript',category:'Algorithmus',accentColor:'#fbbf24',description:'Rekursive Fibonacci mit Memoization-Cache. O(n) statt exponentiell.',tags:['recursion','math','dp'],code:"// Memoized Fibonacci\nfunction fibonacci(n, memo = {}) {\n  if (n <= 1) return n;\n  if (memo[n] !== undefined) return memo[n];\n  memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo);\n  return memo[n];\n}\nconst seq = Array.from({length:15},(_,i)=>fibonacci(i));\nconsole.log('Fibonacci:', seq);\nconsole.log('Goldener Schnitt:', (seq[14]/seq[13]).toFixed(10));"},
+  {id:'tpl_quicksort',name:'Generic Quicksort',language:'TypeScript',category:'Algorithmus',accentColor:'#34d399',description:'Generisches Quicksort mit Median-of-Three Pivot.',tags:['sort','generics','typescript'],code:"type Cmp<T>=(a:T,b:T)=>number;\nconst defaultCmp=<T>(a:T,b:T):number=>a<b?-1:a>b?1:0;\nfunction med3<T>(a:T[],lo:number,hi:number,c:Cmp<T>):T{\n  const m=(lo+hi)>>1;\n  if(c(a[lo],a[m])>0)[a[lo],a[m]]=[a[m],a[lo]];\n  if(c(a[lo],a[hi])>0)[a[lo],a[hi]]=[a[hi],a[lo]];\n  if(c(a[m],a[hi])>0)[a[m],a[hi]]=[a[hi],a[m]];\n  return a[m];\n}\nfunction partition<T>(a:T[],lo:number,hi:number,c:Cmp<T>):number{\n  const pivot=med3(a,lo,hi,c);let i=lo-1,j=hi+1;\n  for(;;){while(c(a[++i],pivot)<0){}while(c(a[--j],pivot)>0){}if(i>=j)return j;[a[i],a[j]]=[a[j],a[i]];}\n}\nexport function quickSort<T>(a:T[],c:Cmp<T>=defaultCmp,lo=0,hi=a.length-1):T[]{\n  if(lo<hi){const p=partition(a,lo,hi,c);quickSort(a,c,lo,p);quickSort(a,c,p+1,hi);}return a;\n}"},
+  {id:'tpl_neural',name:'Dense Neural Layer',language:'Python',category:'KI / ML',accentColor:'#a855f7',description:'Vollverbundene Netzschicht mit Forward- und Backpropagation.',tags:['ML','numpy','neural'],code:"import numpy as np\n\nclass DenseLayer:\n    def __init__(self, in_size, out_size, activation='relu'):\n        self.W = np.random.randn(in_size, out_size) * 0.01\n        self.b = np.zeros((1, out_size))\n        self.activation = activation\n        self.x = None\n    def forward(self, x):\n        self.x = x\n        z = x @ self.W + self.b\n        if self.activation == 'relu': return np.maximum(0, z)\n        if self.activation == 'sigmoid': return 1/(1+np.exp(-z))\n        if self.activation == 'tanh': return np.tanh(z)\n        return z\n    def backward(self, dout, lr=0.001):\n        dW = self.x.T @ dout\n        db = dout.sum(axis=0, keepdims=True)\n        self.W -= lr * dW; self.b -= lr * db\n        return dout @ self.W.T"},
+  {id:'tpl_css_glass',name:'Glassmorphism Card',language:'CSS',category:'Design',accentColor:'#22d3ee',description:'Glassmorphism-Karte mit backdrop-filter und Hover-Animation.',tags:['design','glass','ui'],code:".glass {\n  background: rgba(255,255,255,.08);\n  backdrop-filter: blur(20px) saturate(180%);\n  -webkit-backdrop-filter: blur(20px) saturate(180%);\n  border: 1px solid rgba(255,255,255,.12);\n  border-radius: 16px; padding: 1.5rem 1.75rem;\n  box-shadow: 0 8px 32px rgba(0,0,0,.24);\n  transition: transform .25s, box-shadow .25s;\n}\n.glass:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 20px 60px rgba(0,0,0,.35);\n}"},
+  {id:'tpl_css_tokens',name:'Design Token System',language:'CSS',category:'Design',accentColor:'#f472b6',description:'CSS Custom Properties als Design-System-Basis.',tags:['design','tokens','variables'],code:":root {\n  /* Colors */\n  --color-primary: #3b82f6;\n  --color-accent:  #a855f7;\n  --color-success: #4ade80;\n  --color-warning: #fbbf24;\n  --color-danger:  #fb7185;\n  --color-bg:      #020817;\n  --color-surface: #0f172a;\n  --color-border:  rgba(255,255,255,.07);\n  --color-text:    #f1f5f9;\n  --color-muted:   #64748b;\n  /* Spacing */\n  --space-xs: .25rem; --space-sm: .5rem;\n  --space-md: 1rem;   --space-lg: 2rem;\n  /* Typography */\n  --font-sans: Inter, system-ui, sans-serif;\n  --font-mono: 'JetBrains Mono', monospace;\n  --text-sm: .875rem; --text-base: 1rem; --text-lg: 1.25rem;\n  /* Radius */\n  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px;\n}"},
+  {id:'tpl_html_landing',name:'Landing Page',language:'HTML',category:'HTML',accentColor:'#fb923c',description:'Minimale Landing-Page mit Hero, Features und CTA.',tags:['landing','html','web'],code:"<!DOCTYPE html>\n<html lang='de'>\n<head>\n  <meta charset='UTF-8'>\n  <meta name='viewport' content='width=device-width,initial-scale=1'>\n  <title>Product</title>\n  <style>\n    *{box-sizing:border-box;margin:0;padding:0}\n    body{font-family:system-ui,sans-serif;background:#020817;color:#f1f5f9;min-height:100vh}\n    .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1rem;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.15),transparent 70%)}\n    h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#fff,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem}\n    .sub{font-size:1.1rem;color:#94a3b8;max-width:500px;line-height:1.6;margin-bottom:2rem}\n    .cta{padding:.8rem 2rem;border-radius:99px;background:#3b82f6;color:#fff;font-weight:600;border:none;cursor:pointer;font-size:1rem;transition:all .2s}\n    .cta:hover{background:#2563eb;transform:translateY(-2px)}\n    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;padding:3rem 2rem;max-width:900px;margin:0 auto}\n    .feat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.5rem;text-align:center}\n    .feat-icon{font-size:2rem;margin-bottom:.75rem}\n    .feat h3{font-size:1rem;margin-bottom:.5rem}\n    .feat p{font-size:.85rem;color:#64748b;line-height:1.5}\n  </style>\n</head>\n<body>\n  <div class='hero'>\n    <h1>Your Product Name</h1>\n    <p class='sub'>A short description of what your product does and why it matters.</p>\n    <button class='cta'>Get Started Free</button>\n  </div>\n  <div class='features'>\n    <div class='feat'><div class='feat-icon'>⚡</div><h3>Fast</h3><p>Built for speed from the ground up.</p></div>\n    <div class='feat'><div class='feat-icon'>🔒</div><h3>Secure</h3><p>Security baked in, not bolted on.</p></div>\n    <div class='feat'><div class='feat-icon'>🎨</div><h3>Beautiful</h3><p>Design that delights your users.</p></div>\n  </div>\n</body></html>"},
+  {id:'tpl_rust_hash',name:'HashMap in Rust',language:'Rust',category:'Systeme',accentColor:'#f97316',description:'Wort-Häufigkeits-Zähler mit HashMap.',tags:['rust','hashmap','collections'],code:'use std::collections::HashMap;\n\nfn word_count(text: &str) -> HashMap<&str, usize> {\n    let mut map = HashMap::new();\n    for word in text.split_whitespace() {\n        *map.entry(word).or_insert(0) += 1;\n    }\n    map\n}\n\nfn main() {\n    let text = "the quick brown fox jumps over the lazy dog the fox";\n    let counts = word_count(text);\n    let mut pairs: Vec<_> = counts.iter().collect();\n    pairs.sort_by(|a, b| b.1.cmp(a.1));\n    for (word, count) in pairs.iter().take(5) {\n        println!("{:>10} : {}", word, count);\n    }\n}'},
+  {id:'tpl_empty_js',name:'Empty JavaScript',language:'JavaScript',category:'Starter',accentColor:'#3b82f6',description:'Leere JavaScript-Vorlage.',tags:['starter'],code:"// Your JavaScript code here\n\nfunction main() {\n  console.log('Hello, World!');\n}\n\nmain();"},
+  {id:'tpl_empty_py',name:'Empty Python',language:'Python',category:'Starter',accentColor:'#22d3ee',description:'Leere Python-Vorlage.',tags:['starter'],code:'# Your Python code here\n\ndef main():\n    print("Hello, World!")\n\nif __name__ == "__main__":\n    main()'},
+  {id:'tpl_empty_html',name:'Empty HTML',language:'HTML',category:'Starter',accentColor:'#fb923c',description:'Minimale HTML-Vorlage.',tags:['starter'],code:"<!DOCTYPE html>\n<html lang='en'>\n<head>\n  <meta charset='UTF-8'>\n  <meta name='viewport' content='width=device-width,initial-scale=1'>\n  <title>Document</title>\n  <style>\n    * { box-sizing: border-box; margin: 0; padding: 0; }\n    body { font-family: system-ui, sans-serif; }\n  </style>\n</head>\n<body>\n  <h1>Hello World</h1>\n  <script>\n    console.log('ready');\n  <\/script>\n</body>\n</html>"},
+];
+
+let tplActiveCat='All';
+
+function openTpl(){
+  document.getElementById('tplOverlay').classList.add('on');
+  renderTplCats();
+  renderTplGrid('All');
+}
+function closeTpl(){document.getElementById('tplOverlay').classList.remove('on')}
+
+function getTplList(){
+  // Combine built-ins with user-marked templates
+  const userTpls=P.filter(p=>p.isTemplate).map(p=>({
+    id:'user_'+p.id, name:p.name, language:p.language,
+    category:'Meine Templates', accentColor:p.accentColor,
+    description:p.description||'', tags:p.tags||[],
+    code:getCode(p.id), _userId:p.id
+  }));
+  return [...userTpls, ...BUILTIN_TEMPLATES];
+}
+
+function renderTplCats(){
+  const all=getTplList();
+  const cats=['All',...new Set(all.map(t=>t.category))];
+  document.getElementById('tplCats').innerHTML=cats.map(cat=>
+    '<button class="tpl-cat'+(cat===tplActiveCat?' on':'')
+    +'" onclick="renderTplGrid(this.dataset.cat)" data-cat="'+esc(cat)+'">'
+    +(cat==='Meine Templates'?'★ ':'')+esc(cat)+'</button>'
+  ).join('');
+}
+
+function renderTplGrid(cat){
+  tplActiveCat=cat;
+  renderTplCats();
+  const all=getTplList();
+  const list=cat==='All'?all:all.filter(t=>t.category===cat);
+  const body=document.getElementById('tplBody');
+  if(!list.length){body.innerHTML='<div class="tpl-empty">Keine Templates in dieser Kategorie</div>';return;}
+  body.innerHTML=list.map(t=>{
+    const lc=LC[t.language]||'#888';
+    const isUser=!!t._userId;
+    return '<div class="tpl-card'+(isUser?' user-tpl':'')+'" data-tplid="'+esc(t.id)+'">'
+      +'<div class="tpl-preview"><canvas id="tpc-'+t.id+'" width="300" height="100"></canvas></div>'
+      +'<div class="tpl-info">'
+        +'<div class="tpl-name">'+esc(t.name)+'</div>'
+        +'<div class="tpl-lang"><span style="width:7px;height:7px;border-radius:50%;background:'+lc+';display:inline-block;flex-shrink:0"></span>'+t.language
+          +(isUser?'<span class="tpl-badge" style="background:rgba(168,85,247,.15);color:#c4b5fd;border:1px solid rgba(168,85,247,.25)">★ Mein Template</span>':'')
+        +'</div>'
+        +'<div class="tpl-desc">'+esc(t.description)+'</div>'
+        +'<button class="tpl-use-btn">＋ Use Template</button>'
+      +'</div>'
+    +'</div>';
+  }).join('');
+  // Draw thumbnails
+  requestAnimationFrame(()=>{
+    list.forEach(t=>{
+      const cv=document.getElementById('tpc-'+t.id);
+      if(cv){const fakeP={code:t.code,accentColor:t.accentColor,language:t.language,name:t.name,starred:false};
+        drawThumb(cv,fakeP);}
+    });
+  });
+}
+
+function useTemplate(tplId){
+  // Find template
+  let tpl=BUILTIN_TEMPLATES.find(t=>t.id===tplId);
+  if(!tpl){
+    // User template
+    const uid=tplId.replace('user_','');
+    const p=P.find(x=>x.id===uid);
+    if(p)tpl={name:p.name,language:p.language,description:p.description||'',tags:p.tags||[],code:getCode(p.id),accentColor:p.accentColor};
+  }
+  if(!tpl)return;
+  closeTpl();
+  // Pre-fill the new project drawer
+  openDrw();
+  setTimeout(()=>{
+    const fn=document.getElementById('fn'),fd=document.getElementById('fd'),fl=document.getElementById('fl'),ft=document.getElementById('ft'),fc=document.getElementById('fc');
+    if(fn)fn.value=tpl.name;
+    if(fd)fd.value=tpl.description||'';
+    if(fl)fl.value=tpl.language;
+    if(ft)ft.value=(tpl.tags||[]).join(', ');
+    if(fc){fc.value=tpl.code;fc.dispatchEvent(new Event('input'));}
+    renderSwts(tpl.accentColor||ACC[0]);
+    toast('Template geladen — anpassen und veröffentlichen!','ok');
+  },80);
+}
+
+function toggleTemplate(id){
+  const p=P.find(x=>x.id===id);
+  if(!p)return;
+  p.isTemplate=!p.isTemplate;
+  save();
+  render();
+  toast(p.isTemplate?'⬡ Als Template gespeichert':'Template entfernt','ok');
+}
+
+
+// ══════════════════════════════════════════════════════════════════
+// MULTI-FILE PROJECTS
+// ══════════════════════════════════════════════════════════════════
+const FILE_LANG_COLORS = {js:'#f7df1e',ts:'#3178c6',py:'#3776ab',rs:'#ce422b',go:'#00add8',css:'#264de4',html:'#e34c26',cpp:'#00599c',java:'#007396',sql:'#fbbf24',sh:'#4ade80',md:'#94a3b8',json:'#fbbf24',txt:'#64748b'};
+const FILE_LANG_MAP = {js:'JavaScript',ts:'TypeScript',py:'Python',rs:'Rust',go:'Go',css:'CSS',html:'HTML',cpp:'C++',java:'Java',sql:'SQL',sh:'Shell',md:'Other',json:'Other',txt:'Other'};
+const EXT_TYPES = ['js','ts','html','css','py','rs','go','json','md','txt'];
+let curFileId = null;
+
+function getFileExt(name){return(name.split('.').pop()||'txt').toLowerCase()}
+function fileLangColor(name){return FILE_LANG_COLORS[getFileExt(name)]||'#64748b'}
+function fileLang(name){return FILE_LANG_MAP[getFileExt(name)]||'Other'}
+
+function ensureFiles(p){
+  if(!p.files||!p.files.length){
+    const extMap={JavaScript:'js',TypeScript:'ts',Python:'py',Rust:'rs',Go:'go',CSS:'css',HTML:'html','C++':'cpp',Java:'java',SQL:'sql',Shell:'sh'};
+    const ext=extMap[p.language]||'txt';
+    const fileId='f_'+p.id+'_main';
+    setCode(fileId,getCode(p.id));
+    p.files=[{id:fileId,name:'main.'+ext,language:p.language}];
+    save();
+  }
+  return p.files;
+}
+
+function getFileCode(fid){return getCode(fid)}
+function setFileCode(fid,code){setCode(fid,code)}
+
+function renderFileTabs(p){
+  const bar=document.getElementById('ftabs-bar');
+  if(!bar)return;
+  const files=ensureFiles(p);
+  bar.innerHTML=files.map(f=>{
+    const col=fileLangColor(f.name);
+    const isActive=f.id===curFileId;
+    const canClose=files.length>1;
+    return '<span class="ftab'+(isActive?' on':'')+'" onclick="switchFile(\''+f.id+'\')" data-fid="'+f.id+'">'
+      +'<span class="ftype-dot" style="background:'+col+'"></span>'
+      +esc(f.name)
+      +(canClose?'<span class="ft-close" onclick="event.stopPropagation();removeFile(\''+f.id+'\')" title="Close">✕</span>':'')
+      +'</span>';
+  }).join('')+'<span class="ftab-add" onclick="addFilePrompt()" title="New file">＋</span>';
+}
+
+function switchFile(fileId){
+  if(!curP)return;
+  if(editMode&&curFileId){const ta=document.getElementById('editor-ta');if(ta)setFileCode(curFileId,ta.value);}
+  curFileId=fileId;
+  const files=ensureFiles(curP);
+  const f=files.find(x=>x.id===fileId);
+  if(!f)return;
+  document.getElementById('dfn').textContent=f.name;
+  renderFileTabs(curP);
+  const code=getFileCode(fileId);
+  renderCodeRaw(code,f.language||fileLang(f.name));
+  if(editMode){const ta=document.getElementById('editor-ta');if(ta)ta.value=code;}
+  const rl=document.getElementById('run-label');if(rl)rl.textContent=(f.language||fileLang(f.name))+' Run';
+  buildMultiPrev(curP);
+}
+
+function renderCodeRaw(code,lang){
+  const rows=(code||'').split('\n').map((l,i)=>'<tr class="cl"><td class="ln">'+(i+1)+'</td><td class="lc">'+(hlCode(l,lang)||'\xa0')+'</td></tr>').join('');
+  const tbl='<table class="code-table">'+rows+'</table>';
+  const dc=document.getElementById('dcode');
+  const rp=document.getElementById('run-pre');
+  if(dc){dc.innerHTML=tbl;dc.style.display='';}
+  if(rp)rp.innerHTML=tbl;
+  const ta=document.getElementById('editor-ta');if(ta)ta.style.display='none';
+}
+
+function addFilePrompt(){
+  const modal=document.getElementById('fnew-modal');
+  if(!modal)return;
+  document.getElementById('fnew-types').innerHTML=EXT_TYPES.map(ext=>'<span class="fnew-ft" onclick="selectFnewType(\''+ext+'\')">'+ext+'</span>').join('');
+  document.getElementById('fnew-input').value='';
+  modal.classList.add('on');
+  document.getElementById('fnew-input').focus();
+  setTimeout(()=>document.addEventListener('click',closeFnewOnOutside),50);
+}
+function closeFnewOnOutside(e){
+  const m=document.getElementById('fnew-modal');
+  if(m&&!m.contains(e.target)&&!e.target.classList.contains('ftab-add'))closeFnewModal();
+}
+function closeFnewModal(){
+  const m=document.getElementById('fnew-modal');
+  if(m)m.classList.remove('on');
+  document.removeEventListener('click',closeFnewOnOutside);
+}
+function selectFnewType(ext){
+  const inp=document.getElementById('fnew-input');
+  if(inp){inp.value='new.'+ext;inp.focus();inp.select();}
+  document.querySelectorAll('.fnew-ft').forEach(el=>el.classList.toggle('on',el.textContent===ext));
+}
+function confirmAddFile(){
+  if(!curP)return;
+  const name=(document.getElementById('fnew-input')?.value||'').trim();
+  if(!name)return toast('Dateiname fehlt','err');
+  const files=ensureFiles(curP);
+  if(files.find(f=>f.name===name))return toast('Datei existiert bereits','err');
+  const fileId='f_'+curP.id+'_'+Date.now().toString(36);
+  setFileCode(fileId,'');
+  files.push({id:fileId,name,language:fileLang(name)});
+  save();
+  closeFnewModal();
+  renderFileTabs(curP);
+  switchFile(fileId);
+  setTimeout(()=>{if(!editMode)toggleEdit();},80);
+  toast('📄 '+name+' erstellt','ok');
+}
+function removeFile(fileId){
+  if(!curP)return;
+  const files=ensureFiles(curP);
+  if(files.length<=1)return toast('Mindestens eine Datei erforderlich','err');
+  const f=files.find(x=>x.id===fileId);
+  if(!f||!confirm('Datei "'+f.name+'" löschen?'))return;
+  delCode(fileId);
+  const idx=files.findIndex(x=>x.id===fileId);
+  files.splice(idx,1);
+  save();
+  curFileId=files[Math.max(0,idx-1)].id;
+  renderFileTabs(curP);
+  switchFile(curFileId);
+  toast('Datei entfernt','ok');
+}
+
+function buildMultiPrev(p){
+  if(!p)return;
+  const files=ensureFiles(p);
+  const htmlF=files.filter(f=>getFileExt(f.name)==='html');
+  const cssF=files.filter(f=>getFileExt(f.name)==='css');
+  const jsF=files.filter(f=>['js','ts'].includes(getFileExt(f.name)));
+  let srcdoc;
+  if(htmlF.length){
+    let html=getFileCode(htmlF[0].id);
+    const cssAll=cssF.map(f=>getFileCode(f.id)).join('\n');
+    const jsAll=jsF.map(f=>getFileCode(f.id)).join('\n');
+    if(cssAll.trim())html=html.replace('</head>','<style>'+cssAll+'</style></head>');
+    if(jsAll.trim())html=html.replace('</body>','<script>'+jsAll.replace(/<\/script>/gi,'<\\/script>')+'<\/script></body>');
+    srcdoc=html;
+  } else if(files.length>1){
+    const cssAll=cssF.map(f=>getFileCode(f.id)).join('\n');
+    const jsAll=jsF.map(f=>getFileCode(f.id)).join('\n');
+    srcdoc='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#020817;color:#f1f5f9;font-family:system-ui}</style>'
+      +(cssAll?'<style>'+cssAll+'</style>':'')+'</head><body>'
+      +(jsAll?'<script>'+jsAll.replace(/<\/script>/gi,'<\\/script>')+'<\/script>':'')+'</body></html>';
+  } else {
+    const fakeP={...p,code:getFileCode(files[0].id),language:files[0].language||p.language};
+    srcdoc=buildSrcdoc(fakeP);
+  }
+  const pvc=document.getElementById('pvc');if(!pvc)return;
+  let ifr=pvc.querySelector('iframe');
+  if(!ifr){ifr=document.createElement('iframe');ifr.sandbox='allow-scripts';pvc.appendChild(ifr);}
+  ifr.srcdoc=srcdoc;
+}
+
+// ── Patch openP ───────────────────────────────────────────────────
+const _mf_origOpenP=openP;
+openP=function(id){
+  _mf_origOpenP(id);
+  if(!curP)return;
+  const files=ensureFiles(curP);
+  if(!curFileId||!files.find(f=>f.id===curFileId))curFileId=files[0].id;
+  renderFileTabs(curP);
+  switchFile(curFileId);
+};
+
+// ── Patch toggleEdit ─────────────────────────────────────────────
+const _mf_origToggleEdit=toggleEdit;
+toggleEdit=function(){
+  const pre=document.getElementById('dcode'),ta=document.getElementById('editor-ta'),btn=document.getElementById('editbtn');
+  if(!pre||!ta||!btn)return;
+  if(!editMode){
+    const code=curFileId?getFileCode(curFileId):(curP?.code||'');
+    ta.value=code;pre.style.display='none';ta.style.display='';ta.focus();
+    btn.textContent='✓ Save';btn.style.color='var(--green)';btn.style.borderColor='rgba(74,222,128,.3)';
+    editMode=true;
+  } else {
+    const code=ta.value;
+    if(curFileId){setFileCode(curFileId,code);const files=ensureFiles(curP);if(files[0]?.id===curFileId&&curP)curP.code=code;}
+    else if(curP)curP.code=code;
+    save();
+    const f=curFileId?ensureFiles(curP).find(f=>f.id===curFileId):null;
+    renderCodeRaw(code,f?.language||curP?.language||'JavaScript');
+    pre.style.display='';ta.style.display='none';
+    btn.textContent='✎ Edit';btn.style.color='';btn.style.borderColor='';
+    editMode=false;buildMultiPrev(curP);toast('Saved ✓','ok');
+  }
+};
+
+// ── Patch copyCode ────────────────────────────────────────────────
+copyCode=async function(){
+  const code=curFileId?getFileCode(curFileId):(editMode?document.getElementById('editor-ta')?.value:curP?.code)||'';
+  try{await navigator.clipboard.writeText(code);const b=document.getElementById('cpybtn');if(b){b.textContent='✓';b.style.color='var(--green)';setTimeout(()=>{b.textContent='⎘';b.style.color=''},1800);}toast('Code copied','ok');}
+  catch{toast('Copy failed','err');}
+};
 </script>
+
+<!-- ── TEMPLATE GALLERY OVERLAY ──────────────────────────────── -->
+<div class="tpl-overlay" id="tplOverlay" onclick="if(event.target.id==='tplOverlay')closeTpl()">
+  <div class="tpl-panel">
+    <div class="tpl-head">
+      <span class="tpl-title">⬡ Template Gallery</span>
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <span style="font-size:.67rem;color:var(--mut)">Click a template to start</span>
+        <button class="btn btn-ico btn-ghost" onclick="closeTpl()">✕</button>
+  <button onclick="openTpl()" class="btn btn-ghost" style="border-color:rgba(168,85,247,.3);color:#c4b5fd;gap:.35rem"><span>⬡</span> Templates</button>
+      </div>
+    </div>
+    <div class="tpl-cats" id="tplCats"></div>
+    <div class="tpl-body" id="tplBody"></div>
+  </div>
+</div>
 </body>
 </html>
